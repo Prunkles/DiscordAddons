@@ -8,7 +8,7 @@ There is also an available DI in all added services.
 
 # Configuring
 You can configure the bot the way you do it in an ASP project.
-```
+```c#
 class MyBot : BotBase
 {
     private IConfiguration _config;
@@ -64,7 +64,7 @@ Prints `Pong!` message to the channel where this command was called.
 
 
 ### EmbedMessageResult & ErrorResult
-```
+```c#
 [Command("help")]
 public async Task<RuntimeResult> HelpAsync(string input)
 {
@@ -98,7 +98,7 @@ You need to use the `IEmoteFactory` to create new EmoteButton using the method
 
 For example:
 
-```
+```c#
 class SomeService
 {
     public static readonly IEmote PlusEmote = new Emoji("\u2795");
