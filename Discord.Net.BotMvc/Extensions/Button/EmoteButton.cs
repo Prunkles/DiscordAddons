@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
@@ -8,7 +9,7 @@ namespace Discord.Net.BotMvc.Extensions.Button
     public class EmoteButton : IEmoteButton
     {
         private readonly DiscordSocketClient _client;
-        
+
         public EmoteButton(DiscordSocketClient client, IEmote emote, ulong messageId, ButtonTrigger triggered)
         {
             _client = client;
@@ -16,7 +17,8 @@ namespace Discord.Net.BotMvc.Extensions.Button
             MessageId = messageId;
             Triggered += triggered;
             
-            _client.ReactionAdded += OnReactionAdded;
+            if (triggered != null)
+                _client.ReactionAdded += OnReactionAdded;
         }
 
         public IEmote Emote { get; set; }

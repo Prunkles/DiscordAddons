@@ -14,11 +14,11 @@ namespace Discord.Net.BotMvc.Extensions.Alerts
 //            ReplyQueue = new List<Task>();
 //        }
 
-        public static async Task Reply(ITextChannel channel, string text, int delay)
+        public static async Task Reply(ITextChannel channel, string text, int delayMs)
         {
             var message = await channel.SendMessageAsync(text);
 
-            await Task.Delay(delay);
+            await Task.Delay(delayMs);
 
             try
             {
